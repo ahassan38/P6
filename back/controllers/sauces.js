@@ -1,7 +1,7 @@
 const Sauces = require('../models/Sauce');
 const fs = require('fs');
 
-//créer une sauce
+//créer une sauce avec l'userID de l'utilisateur
 exports.createSauces = (req, res, next) => {
     const saucesObject = JSON.parse(req.body.sauce);
     delete saucesObject._id;
@@ -16,7 +16,7 @@ exports.createSauces = (req, res, next) => {
         .catch(error => res.status(400).json({ error }))
 };
 
-//modifier une sauce
+//modifier une sauce, uniquement autorisé par l'utilisateur qui l'a créée
 exports.modifySauces = (req, res, next) => {
     const saucesObject = req.file ? {
         ...JSON.parse(req.body.sauce),

@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true }
 });
-// utilisation du shema via le plugin de mongoose-unique-validator
+// interdit de créer plusieurs comptes avec la même adresse email.
 userSchema.plugin(uniqueValidator);
 // exportation du schema modele
 module.exports = mongoose.model('User', userSchema);

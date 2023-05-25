@@ -9,7 +9,7 @@ passwordSchema
   .is().max(100) // Maximum longueur 100
   .has().uppercase() // contient des majuscules
   .has().lowercase() // contient des minuscules
-  .has().digits(1) // au moins 2 chiffres
+  .has().digits(1) // au moins 1 chiffre
   .has().not().spaces() // pas d'espaces
   .is().not().oneOf(["Passw0rd", "Password123"]); 
 
